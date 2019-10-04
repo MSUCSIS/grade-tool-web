@@ -1,0 +1,12 @@
+language: java
+
+addons:
+  sonarcloud:
+    organization: "msucsis"
+    token: ${SONAR_TOKEN}
+
+jdk:
+  - openjdk11
+
+after_success:
+  - mvn clean test jacoco:report coveralls:report sonar:sonar
